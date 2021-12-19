@@ -1,16 +1,13 @@
 export default class Team {
-    constructor() {
-        this.characters = [];
-    }
+  constructor() {
+    this.characters = [];
+  }
 
-    addCharacter(character) {
-        this.characters.push(character)
-    }
+  addCharacter(character) {
+    this.characters.push(character);
+  }
 
-    getCharacter(index) {
-        return this.characters[index]
-    }
+  getCharacter(index) {
+    return this.characters[index];
+  }
 }
-
-
-

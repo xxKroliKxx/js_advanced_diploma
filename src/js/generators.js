@@ -7,23 +7,22 @@
  */
 import Team from './Team';
 
+function getRandomInt(min, max) {
+  const minCeil = Math.ceil(min);
+  const maxFloor = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloor - minCeil)) + minCeil;
+}
+
 export function characterGenerator(allowedTypes, maxLevel) {
-    let rnd = getRandomInt(0, allowedTypes.length)
-    return new allowedTypes[rnd]( getRandomInt(1, maxLevel))
+  const rnd = getRandomInt(0, allowedTypes.length);
+  return new allowedTypes[rnd](getRandomInt(1, maxLevel));
 }
 
 export function generateTeam(allowedTypes, maxLevel, characterCount) {
-    let team = new Team()
-    for (let i = 1; i <= characterCount; i++) {
-        let character = characterGenerator(allowedTypes, maxLevel)
-        team.addCharacter(character)
-    }
-    return team
-}
-
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+  const team = new Team();
+  for (let i = 1; i <= characterCount; i += 1) {
+    const character = characterGenerator(allowedTypes, maxLevel);
+    team.addCharacter(character);
+  }
+  return team;
 }

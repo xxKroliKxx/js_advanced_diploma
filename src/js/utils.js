@@ -1,43 +1,42 @@
 export function calcTileType(index, boardSize) {
-    // TODO: test
-    const upperLeftCorner = 0
-    const upperRightCorner = boardSize - 1
-    const bottomLeftCorner = boardSize * (boardSize - 1)
-    const bottomRightCorner = boardSize * boardSize - 1
+  const upperLeftCorner = 0;
+  const upperRightCorner = boardSize - 1;
+  const bottomLeftCorner = boardSize * (boardSize - 1);
+  const bottomRightCorner = boardSize * boardSize - 1;
 
-    if (index === upperLeftCorner) {
-        return 'top-left'
-    } else if (index === upperRightCorner) {
-        return 'top-right'
-    } else if (index > upperLeftCorner && index < upperRightCorner) {
-        return 'top'
-    }
+  if (index === upperLeftCorner) {
+    return 'top-left';
+  } if (index === upperRightCorner) {
+    return 'top-right';
+  } if (index > upperLeftCorner && index < upperRightCorner) {
+    return 'top';
+  }
 
-    if (index === bottomLeftCorner) {
-        return 'bottom-left'
-    } else if (index === bottomRightCorner) {
-        return 'bottom-right'
-    } else if (index > bottomLeftCorner && index < bottomRightCorner) {
-        return 'bottom'
-    }
+  if (index === bottomLeftCorner) {
+    return 'bottom-left';
+  } if (index === bottomRightCorner) {
+    return 'bottom-right';
+  } if (index > bottomLeftCorner && index < bottomRightCorner) {
+    return 'bottom';
+  }
 
-    if (index % boardSize === 0) {
-        return 'left'
-    } else if ((index + 1) % boardSize === 0) {
-        return 'right'
-    }
+  if (index % boardSize === 0) {
+    return 'left';
+  } if ((index + 1) % boardSize === 0) {
+    return 'right';
+  }
 
-    return 'center';
+  return 'center';
 }
 
 export function calcHealthLevel(health) {
-    if (health < 15) {
-        return 'critical';
-    }
+  if (health < 15) {
+    return 'critical';
+  }
 
-    if (health < 50) {
-        return 'normal';
-    }
+  if (health < 50) {
+    return 'normal';
+  }
 
-    return 'high';
+  return 'high';
 }
